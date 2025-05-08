@@ -1,10 +1,20 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 
-// https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: '/student-list-dashboard/',
+  base: "/",
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: undefined,
+        format: "es",
+        entryFileNames: "assets/[name].[hash].mjs",
+        chunkFileNames: "assets/[name].[hash].mjs",
+        assetFileNames: "assets/[name].[hash][extname]",
+      },
+    },
+  },
   server: {
     host: true,
     port: 3000,
