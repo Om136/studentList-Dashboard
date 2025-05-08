@@ -16,17 +16,22 @@ import type { StudentFormData } from "../types/student";
 import { api } from "../services/mockApi";
 import { useAuth } from "../hooks/useAuth";
 
-export const AddStudentForm = () => {
+interface AddStudentFormProps {
+  onStudentAdded: () => void; // Callback to notify parent component
+}
+
+export const AddStudentForm = ({ onStudentAdded }: AddStudentFormProps) => {
   const { user, signIn, signingIn, error: authError, clearError } = useAuth();
   const [formData, setFormData] = useState<StudentFormData>({
     name: "",
     email: "",
     course: "",
-    photoUrl: "https://placehold.co/150",
+    photoUrl: "",
     phoneNumber: "",
     address: "",
     gpa: 0.0,
     status: "active",
+    enrollmentDate: new Date().toISOString(), // Add enrollmentDate with a default value
   });
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
@@ -59,8 +64,10 @@ export const AddStudentForm = () => {
         address: "",
         gpa: 0.0,
         status: "active",
+        enrollmentDate: new Date().toISOString(),
       });
       setError("");
+      onStudentAdded(); // Notify parent component to refresh the student list
     } catch {
       setError("Failed to add student");
       setSuccess("");

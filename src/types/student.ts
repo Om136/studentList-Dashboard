@@ -8,6 +8,7 @@ export interface Student {
   address: string;
   gpa: number;
   status: string;
+  photoUrl: string; // Added photoUrl property
 }
 
 export type StudentFormData = Omit<Student, "id">;

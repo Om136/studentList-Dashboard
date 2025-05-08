@@ -33,11 +33,12 @@ export const EditStudentDialog = ({
     name: "",
     email: "",
     course: "",
-    photoUrl: "https://placehold.co/150",
+    photoUrl: "",
     phoneNumber: "",
     address: "",
     gpa: 0.0,
     status: "active",
+    enrollmentDate: "", // Added enrollmentDate
   });
   const [error, setError] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -53,6 +54,7 @@ export const EditStudentDialog = ({
         address: student.address,
         gpa: student.gpa,
         status: student.status,
+        enrollmentDate: student.enrollmentDate, // Added enrollmentDate
       });
     }
   }, [student]);

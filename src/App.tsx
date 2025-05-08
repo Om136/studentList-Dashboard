@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
   Container,
   AppBar,
@@ -37,6 +38,7 @@ const Header = () => {
 
 const AppContent = () => {
   const { loading } = useAuth();
+  const [refreshKey, setRefreshKey] = useState(0); // Key to trigger refresh
 
   if (loading) {
     return (
@@ -56,8 +58,10 @@ const AppContent = () => {
   return (
     <Container maxWidth="lg" sx={{ py: 4 }}>
       <Header />
-      <AddStudentForm />
-      <StudentList />
+      <AddStudentForm
+        onStudentAdded={() => setRefreshKey((prev) => prev + 1)}
+      />
+      <StudentList key={refreshKey} />
     </Container>
   );
 };

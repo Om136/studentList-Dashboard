@@ -12,6 +12,7 @@ const initialMockStudents: Student[] = [
     address: "123 College St, Academic City, AC 12345",
     gpa: 3.8,
     status: "active",
+    photoUrl: "https://example.com/photos/john.jpg",
   },
   {
     id: "2",
@@ -23,6 +24,7 @@ const initialMockStudents: Student[] = [
     address: "456 University Ave, Academic City, AC 12345",
     gpa: 3.9,
     status: "active",
+    photoUrl: "https://example.com/photos/jane.jpg",
   },
   {
     id: "3",
@@ -34,6 +36,7 @@ const initialMockStudents: Student[] = [
     address: "789 Science Blvd, Academic City, AC 12345",
     gpa: 3.5,
     status: "active",
+    photoUrl: "https://example.com/photos/emily.jpg",
   },
 ];
 
