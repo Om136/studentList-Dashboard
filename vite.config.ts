@@ -1,14 +1,13 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 
-// https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: "/student-list-dashboard/", // Explicitly set the base path for Vercel deployment
+  base: "./", // ✅ Use relative path for Vercel root deployments
   server: {
-    host: true, // Listen on all addresses
+    host: true,
     port: 3000,
-    strictPort: false, // Allow fallback to next available port if 3000 is taken
-    open: true, // This will open the browser automatically
+    strictPort: false,
+    open: true,
   },
 });
