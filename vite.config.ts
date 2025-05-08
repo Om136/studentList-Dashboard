@@ -4,7 +4,7 @@ import react from "@vitejs/plugin-react";
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "/", // Set base dynamically for Vercel
+  base: "/student-list-dashboard/", // Explicitly set the base path for Vercel deployment
   server: {
     host: true, // Listen on all addresses
     port: 3000,
